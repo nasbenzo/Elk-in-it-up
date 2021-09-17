@@ -4,7 +4,7 @@ What I have done so far
 
 The files in this repository were used to configure the network depicted below.
 
-https://drive.google.com/file/d/1Bw7VZihId_alW8wgkdvztycidfdX2hm9/view?usp=sharing
+![image](https://user-images.githubusercontent.com/85413438/133724133-6f768fb0-678c-409f-a7b7-368d03b925f2.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _config_ file may be used to install only certain pieces of it, such as Filebeat.
 
@@ -75,7 +75,7 @@ The playbook implements the following tasks:
 - Enable services on boot
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-https://docs.google.com/drawings/d/147MWx3k7gCkLMb8s5wA-8v6mRkUkmV7Pxfch4N9LQmA/edit?usp=sharing
+![image](https://user-images.githubusercontent.com/85413438/133724292-49d2c2e5-f9f4-406c-bbad-c0f71e9d6b5c.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
