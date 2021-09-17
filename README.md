@@ -57,7 +57,7 @@ A summary of the access policies in place can be found in the table below.
 | Jump Box | yes                 | 47.41.59.79          |
 | Web-1    | No                  |                      |
 | Web-2    | No                  |                      |
-| Elk VM   | No                  |                      |
+| Elk VM   | No                  | 47.41.59.79          |
 |          |                     |                      |
 
 ### Elk Configuration
