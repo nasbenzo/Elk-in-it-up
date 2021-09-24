@@ -1,112 +1,340 @@
-# Elk-in-it-up
-What I have done so far
-## Automated ELK Stack Deployment
+## Week 14 Homework: Web Development
 
-The files in this repository were used to configure the network depicted below.
+### Overview
 
-![image](https://user-images.githubusercontent.com/85413438/133724133-6f768fb0-678c-409f-a7b7-368d03b925f2.png)
+In this homework, we will review the many of the concepts and tools covered in the Web Development unit. If needed, refer to the  reference sheets provided to you.
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _config_ file may be used to install only certain pieces of it, such as Filebeat.
+* [HTTP Reference Sheet](./HTTP_Reference.md)
+* [curl Reference Sheet](./cURL_Reference.md)
 
-  - _TODO: from ansible container root 'cd /etc/ansible' run command ansible-playbook install-elk.yml
+---
 
-This document contains the following details:
-- Description of the Topology
-- Access Policies
-- ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
-- How to Use the Ansible Build
+### Questions 
 
+Before you work through the questions below, please create a new file and record your answers there. This will be your homework deliverable.
 
-### Description of the Topology
+#### HTTP Requests and Responses
 
-The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
+Answer the following questions about the HTTP request and response process.
 
-Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- _TODO: What aspect of security do load balancers protect? Cloud Security, DDOS prevention  What is the advantage of a jump box?_ If configured correctly, it can be a secured way of accessing other devices and creating a VNET without putting your device at risk.
+1. What type of architecture does the HTTP request and response process occur in?
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _data____ and system _logs____.
-- _TODO: What does Filebeat watch for?_ file systems that have been changed
-- _TODO: What does Metricbeat record?_ metric data from the OS and services running on my servers
+2. What are the different parts of an HTTP request? 
 
-The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+3. Which part of an HTTP request is optional?
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.8   | Ubuntu           |
-| Web-1    | Webserver| 10.0.0.12  | Ubuntu           |
-| Web-2    | Webserver| 10.0.0.13  | Ubuntu           |
-| ELK VM   | Webserver| 10.1.0.4   | Ubuntu           |
+4. What are the three parts of an HTTP response?
 
-### Access Policies
+5. Which number class of status codes represents errors?
 
-The machines on the internal network are not exposed to the public Internet. 
+6. What are the two most common request methods that a security professional will encounter?
 
-Only the _JumpBox_ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: my public IP (Changes depending on ISP)_
+7. Which type of HTTP request method is used for sending data?
 
-Machines within the network can only be accessed by _Jump Box Provisioner____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_Jump Box Provisioner Ansible container IP: 10.0.0.8 using my machine's public IP
+8. Which part of an HTTP request contains the data being sent to the server?
 
-A summary of the access policies in place can be found in the table below.
+9. In which part of an HTTP response does the browser receive the web code to generate and style a web page?
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | yes                 | 47.41.59.79          |
-| Web-1    | No                  |                      |
-| Web-2    | No                  |                      |
-| Elk VM   | No                  | 47.41.59.79          |
-|          |                     |                      |
+#### Using curl
 
-### Elk Configuration
+Answer the following questions about `curl`:
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_Deployment is faster than setting up 1 machine at a time
+10. What are the advantages of using `curl` over the browser?
 
-The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+11. Which `curl` option is used to change the request method?
 
-- Increase Virtual memory of ELK VM
-- Install docker.io and pip3
-- Install Docker python module
-- Download and Launch elk docker
-- Enable services on boot
+12. Which `curl` option is used to set request headers?
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-![image](https://user-images.githubusercontent.com/85413438/133724292-49d2c2e5-f9f4-406c-bbad-c0f71e9d6b5c.png)
+13. Which `curl` option is used to view the response header?
 
-### Target Machines & Beats
-This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
-- Web-1 10.0.0.12
-- Web-2 10.0.0.13
+14. Which request method might an attacker use to figure out which HTTP requests an HTTP server will accept?
 
-We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed. Microbeats
+#### Sessions and Cookies
 
-These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+Recall that HTTP servers need to be able to recognize clients from one another. They do this through sessions and cookies.
 
-- Filebeat collects data of the file system
-- Metricbeat collects machine metrics and uptime
+Answer the following questions about sessions and cookies:
 
-### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+15. Which response header sends a cookie to the client?
 
-SSH into the control node and follow the steps below:
-- Copy the _playbook_ file to __Control Node___.
-- Update the _hosts_ file to include...webservers and ELK VM ip
-- Run the playbook, and navigate to _Kibana_ to check that the installation worked as expected.
+    ```HTTP
+    HTTP/1.1 200 OK
+    Content-type: text/html
+    Set-Cookie: cart=Bob
+    ```
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? nano Hosts 
-- _How do I specify which machine to install the ELK server on versus which to install Filebeat on?_ in the hosts file, put the Private IP of the ELK VM 
-- _Which URL do you navigate to in order to check that the ELK server is running? URL: http://ELKVMIP:5601 (ELKVMIP - 20.109.125.125:5601)
+16. Which request header will continue the client's session?
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-"ansible-playbook install-elk.yml for elk container"
-"ansible-playbook filebeat.yml"
-"ansible-playbook metricbeat"
+    ```HTTP
+    GET /cart HTTP/1.1
+    Host: www.example.org
+    Cookie: cart=Bob
+    ```
+
+#### Example HTTP Requests and Responses
+
+Look through the following example HTTP request and response and answer the following questions:
+
+**HTTP Request**
+
+```HTTP
+POST /login.php HTTP/1.1
+Host: example.com
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 34
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Mobile Safari/537.36
+
+username=Barbara&password=password
+```
+
+17. What is the request method?
+
+18. Which header expresses the client's preference for an encrypted response?
+
+19. Does the request have a user session associated with it?
+
+20. What kind of data is being sent from this request body?
+
+**HTTP Response**
+
+```HTTP
+HTTP/1.1 200 OK
+Date: Mon, 16 Mar 2020 17:05:43 GMT
+Last-Modified: Sat, 01 Feb 2020 00:00:00 GMT
+Content-Encoding: gzip
+Expires: Fri, 01 May 2020 00:00:00 GMT
+Server: Apache
+Set-Cookie: SessionID=5
+Content-Type: text/html; charset=UTF-8
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type: NoSniff
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
+
+[page content]
+```
+
+21. What is the response status code?
+
+22. What web server is handling this HTTP response?
+
+23. Does this response have a user session associated to it?
+
+24. What kind of content is likely to be in the [page content] response body?
+
+25. If your class covered security headers, what security request headers have been included?
+
+#### Monoliths and Microservices
+
+Answer the following questions about monoliths and microservices:
+
+26. What are the individual components of microservices called?
+
+27. What is a service that writes to a database and communicates to other services?
+
+28. What type of underlying technology allows for microservices to become scalable and have redundancy?
+
+#### Deploying and Testing a Container Set
+
+Answer the following questions about multi-container deployment:
+
+29. What tool can be used to deploy multiple containers at once?
+
+30. What kind of file format is required for us to deploy a container set?
+
+#### Databases
+
+31. Which type of SQL query would we use to see all of the information within a table called `customers`?
+
+32. Which type of SQL query would we use to enter new data into a table? (You don't need a full query, just the first part of the statement.)
+
+33. Why would we never run `DELETE FROM <table-name>;` by itself?
+
+---
+
+### Bonus Challenge Overview: The Cookie Jar
+
+For this challenge, you'll once again be using `curl`, but this time to manage and swap sessions.
+
+:warning: **Heads Up**: You'll need to have WordPress set up from the Swapping Sessions activity from Day 1 of this unit. If you have not done it or it is improperly set up, please refer to the Day 1 student guide and the Swapping Sessions activity file.
+
+If you recall, on Day 1 of this unit you used Google Chrome's Cookie-Editor extension to swap sessions and cookies. For this homework challenge, we'll be using the command-line tool `curl` to practice swapping cookie and sessions within the WordPress app.
+
+It is important for cybersecurity professionals to know how to manage cookies with `curl`:
+
+- Web application security engineers need to regularly ensure cookies are both functional and safe from tampering.
+
+  - For example, you might need to request a cookie from a webpage and then test various HTTP responses using that cookie. Doing this over and over through the browser is tedious, but can be automated with scripts.
+
+- The same concept applies for penetration testers and hackers: `curl` is used to quickly save a cookie in order to test various exploits.
+
+  - For example, an HTTP server may be configured so that, in order to POST data to specific pages, clients need to have cookies or authentication information set in their request headers, which the server will verify.
+
+#### Revisiting curl
+
+Recall that you used `curl` to craft different kinds of requests for your `curl` activity, and that you saw how to use the Chrome extension Cookie-Editor to export and import cookies and swap sessions.
+
+There will be many systems in which you will need to test requests and cookies that will not connect to a browser or browser extension. 
+
+`curl` not only allows users to look through headers, send data, and authenticate to servers, but also to save and send cookies through two `curl` options: `--cookie-jar` and `--cookie`.
+
+These two options work exactly like Cookie-Editor, but on the command line. 
+
+- `--cookie-jar` allows a curl user to save the cookies set within a response header into a text file.
+
+- `--cookie` allows a user to specify a text file where a cookie is saved, in order to send a request with the cookies embedded in the request header.
+
+Let's look at how we can create a `curl` command that will log into a web page with a supplied username and password, and also save the server's response that should contain a cookie.
+
+#### Logging In and Saving Cookies with Curl
+
+If we want to use the `curl` command to log into an account, `Amanda`, with the password `password`, we use the following `curl` options:
+
+- `curl --cookie-jar ./amandacookies.txt --form "log=Amanda" --form "pwd=password" http://localhost:8080/wp-login.php --verbose`
+- `curl`: The tool that we are using.
+  
+- `--cookie-jar`: Specifies where we will save the cookies.
+  
+- `./amandacookies.txt`: Location and file where the cookies will be saved.
+  
+- `--form`: Lets us pick the login username and password forms that we set in our user info earlier. In this case it's our username.
+  
+- `log=Amanda`: How WordPress understands and accepts usernames.
+  
+- `--form`: Lets us pick the login username and password forms that we set in our user info earlier. In this case it's our password.
+  
+- `pwd=password`: How WordPress understands and accepts passwords.
+  
+- `http://localhost:8080/wp-login.php`: Our WordPress login page.
+  
+- `--verbose`: Outputs more specific description about the actions the command is taking.  
+
+Run the command:  `curl --cookie-jar ./amandacookies.txt --form "log=Amanda" --form "pwd=password" http://localhost:8080/wp-login.php --verbose`
+
+If the site confirms our credentials, it will give us a cookie in return, which `curl` will save in the cookie jar file `./amandacookies.txt`.
+
+Now let's look at how to use that saved cookie on a page that requires us to be logged in.
+
+#### Using a Saved Cookie
+
+To use a saved cookie, we use the following `curl` syntax:
+
+- `curl --cookie ./amandacookies.txt http://localhost:8080/wp-admin/users.php`
+  - `curl`: The tool that we are using.
+    
+  - `--cookie`: Precedes the location of our saved cookie that we want to use.
+    
+  - `./amandacookies.txt`: Location and file where the cookies are saved.
+    
+  - `http://localhost:8080/wp-admin/users.php`: A page that requires authentication to see properly. Note that we are not going to the login page, because supplying a cookie in this instance assumes that we are already logged in.
+
+Now that we know how to use the `curl` cookie jar, let's look at what we need to do for this challenge.
+
+---
+
+### Bonus Challenge Instructions: The Cookie Jar
+
+First, using Docker Compose, navigate to the Day 1 WordPress activity directory and bring up the container set:
+
+- `/home/sysadmin/Documents/docker_files`
+
+Using `curl`, you will do the following for the Ryan user:
+
+  - Log into WordPress and save the user's cookies to a cookie jar.
+
+  - Test a WordPress page by using a cookie from the cookie jar.
+
+  - Pipe the output from the cookie with `grep` to check for authenticated page access.
+
+  - Attempt to access a privileged WordPress admin page.
+
+#### Step 1: Set Up
+
+Create two new users: Amanda and Ryan.   
+
+1. Navigate to `localhost:8080/wp-admin/`
+
+2. On the left-hand toolbar, hover over **Users** and click **Add New**.
+
+3. Enter the following information to create the new user named Amanda.
+
+    - Username: `Amanda`
+    - Email: `amanda@email.com`
+
+4. Skip down to password:
+
+    - Password: `password`
+    - Confirm Password: Check the box to confirm use of weak password.
+    - Role: `Administrator`
+
+5. Create another user named Ryan.
+
+    - Username: `Ryan`
+    - Email: `ryan@email.com`
+
+6. Skip down to password:
+
+    - Password: `123456`
+    - Confirm Password: Check the box to confirm use of weak password.
+    - Role: `Editor`
+
+7. Log out and log in with the following credentials:
+
+    - Username: `Amanda`
+    - Password: `password`
+
+#### Step 2: Baselining
+
+For these "baselining" steps, you'll want to log into two different types of accounts to see how the WordPress site looks at the `localhost:8080/wp-admin/users.php` page.  We want to see how the Users page looks from the perspective of an administrator, vs. a regular user.
+
+1. Using your browser, log into your WordPress site as your sysadmin account and navigate to `localhost:8080/wp-admin/users.php`, where we previously created the user Ryan. Examine this page briefly. Log out.
+
+2. Using your browser, log into your Ryan account and attempt to navigate to `localhost:8080/wp-admin/index.php`. Note the wording on your Dashboard.
+
+3. Attempt to navigate to `localhost:8080/wp-admin/users.php`. Note what you see now.
+
+Log out in the browser.
+
+#### Step 3: Using Forms and a Cookie Jar
+
+Navigate to `~/Documents` in a terminal to save your cookies.
+
+1. Construct a `curl` request that enters two forms: `"log={username}"` and `"pwd={password}"` and goes to `http://localhost:8080/wp-login.php`. Enter Ryan's credentials where there are placeholders.
+
+    - **Question:** Did you see any obvious confirmation of a login? (Y/N)
+
+2. Construct the same `curl` request, but this time add the option and path to save your cookie: `--cookie-jar ./ryancookies.txt`. This option tells `curl` to save the cookies to the `ryancookies.txt` text file.
+
+3. Read the contents of the `ryancookies.txt` file.
+
+   - **Question:** How many items exist in this file?
+
+Note that each one of these is a cookie that was granted to Ryan after logging in.
+
+#### Step 4: Log in Using Cookies
+
+1. Craft a new `curl` command that now uses the `--cookie` option, followed by the path to your cookies file. For the URL, use `http://localhost:8080/wp-admin/index.php`.
+
+   - **Question:** Is it obvious that we can access the Dashboard? (Y/N)
+
+2. Press the up arrow on your keyboard to run the same command, but this time, pipe `| grep Dashboard` to the end of your command to return all instances of the word `Dashboard` on the page.
+
+    - **Question:**  Look through the output where `Dashboard` is highlighted. Does any of the wording on this page seem familiar? (Y/N) If so, you should be successfully logged in to your Editor's dashboard.
+
+#### Step 5: Test the Users.php Page
+
+1. Finally, write a `curl` command using the same `--cookie ryancookies.txt` option, but attempt to access `http://localhost:8080/wp-admin/users.php`.
+
+    - **Question:** What happens this time?
+
+---
+
+### Submission Guidelines
+
+* Save the file where you documented your solutions and submit it as your homework deliverable. 
+
+---
+© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.  
